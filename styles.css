@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: rgb(104, 34, 34);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+
+  width: 200px;
+  height: 300px;
+}
+.list .button {
+  background-color: rgb(233, 126, 126);
+}
+.subList {
+  display: none;
+  height: 100%;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  flex-direction: column;
+}
+.subListActive {
+  display: flex;
+}
+.subList .button {
+  background-color: rgb(155, 155, 238);
+}
+.subListActive > .containerActive {
+  position: absolute;
+  z-index: 3;
+}
+.container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.containerActive {
+  position: relative;
+  flex: 10;
+}
+.containerActive > .button {
+  font-size: 12px;
+  width: 66px;
+  overflow: hidden;
+}
+
+.button {
+  font-size: 18px;
+  border-radius: 5px;
+  min-height: 30px;
+  cursor: pointer;
+  color: rgb(2, 2, 2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: all 500ms ease-in-out;
+  border-radius: 10px;
+}
+.button--active {
+  flex: 10;
+}
+.subList .button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.car.active h3,
+.city.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}

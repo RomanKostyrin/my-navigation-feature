@@ -1,33 +1,50 @@
-const cars = document.querySelectorAll('.car')
-const cities = document.querySelectorAll('.city')
 const button = document.querySelector('.button')
 const containers = document.querySelectorAll('.container')
 
-containers.forEach((container) => {
-  container.addEventListener('click', (event) => {
+const ulAll = document.querySelectorAll('ul')
+const list = document.querySelector('.list')
+const buttons = document.querySelectorAll('.button')
+
+let mainObject = {
+  activeFirstMenu: 'main-0',
+  menus: [2, 1, 1],
+}
+
+let getIndexFromSome = (string) => {
+  const indexOfDash = string.indexOf('-')
+  const newIndex = string.slice(indexOfDash + 1, string.length)
+  return newIndex
+}
+
+let myButton = 0
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const id = +mainObject.activeFirstMenu
+    let mainElement = document.getElementById(`main-${id}`)
+    myButton = button
+
     event.stopPropagation()
-    cleareActiveClasses(containers)
-    container.classList.add('containerActive')
-    showSubMenu(container)
+    if (button.parentNode.parentNode.classList.contains('list')) {
+      console.log('before ' + mainObject.activeFirstMenu)
+      cleareActiveClasses(mainObject.activeFirstMenu)
+      mainObject.activeFirstMenu = button.parentNode.id
+      button.parentNode.classList.add('containerActive')
+      console.log('after ' + mainObject.activeFirstMenu)
+    } else {
+      button.parentNode.parentNode.classList.add('visuallyHidden')
+      button.parentNode.classList.add('containerActive')
+      mainElement.append(myButton)
+    }
+
+    showSubMenu(button.parentNode)
   })
 })
 
-function cleareActiveClasses(items) {
-  items.forEach((item) => {
-    item.classList.contains('containerActive')
-      ? item.classList.remove('containerActive')
-      : null
-
-    if (item.children[1]) {
-      item.children[1].classList.contains('subListActive')
-        ? item.children[1].classList.remove('subListActive')
-        : null
-    }
-  })
+function cleareActiveClasses(id) {
+  console.log(document.getElementById(id))
+  document.getElementById(id).classList.remove('containerActive')
 }
 
 function showSubMenu(container) {
-  console.log(container.children[1])
   container.children[1].classList.add('subListActive')
-  console.log(container.children[1])
 }

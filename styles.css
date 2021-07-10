@@ -26,7 +26,7 @@ body {
   width: 200px;
   height: 300px;
 }
-.list .button {
+.button {
   background-color: rgb(233, 126, 126);
 }
 .subList {
@@ -40,7 +40,7 @@ body {
 .subListActive {
   display: flex;
 }
-.subList .button {
+.button2 {
   background-color: rgb(155, 155, 238);
 }
 .subListActive > .containerActive {
@@ -59,11 +59,11 @@ body {
   position: relative;
   flex: 10;
 }
-.containerActive > .button {
+/* .containerActive > .button {
   font-size: 12px;
   width: 66px;
   overflow: hidden;
-}
+} */
 
 .button {
   font-size: 18px;
@@ -85,8 +85,14 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
-.car.active h3,
-.city.active h3 {
-  opacity: 1;
-  transition: opacity 0.3s ease-in 0.4s;
+.visuallyHidden {
+  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

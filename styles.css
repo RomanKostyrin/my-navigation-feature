@@ -58,17 +58,20 @@ body {
   flex: 10;
 }
 .containerActive > .subList {
+  padding-bottom: 10px;
+  width: 100%;
   display: flex;
 }
 .containerChoosen .button {
+  position: relative;
   overflow: hidden;
 }
 .containerChoosen {
   flex-direction: row;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 .button {
-  min-width: 67px;
   margin-bottom: 3px;
   font-size: 18px;
   border-radius: 5px;
@@ -86,12 +89,21 @@ body {
 .button2 {
   background-color: rgb(155, 155, 238);
 }
+.button3 {
+  background-color: rgb(141, 197, 194);
+}
 .buttonSecond {
   min-width: 130px;
   transition: all 500ms ease-in-out;
 }
 .button--active {
   flex: 10;
+}
+.containerChoosen > button {
+  width: 65px;
+}
+.containerChoosen > .buttonSecond {
+  width: 133px;
 }
 .subList .button {
   margin-left: 10px;

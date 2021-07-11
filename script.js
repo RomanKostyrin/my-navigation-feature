@@ -13,7 +13,7 @@ let mainObject = {
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
     const id = +getIndexFromSome(mainObject.activeFirstMenu)
-    let mainElement = document.getElementById(mainObject.activeFirstMenu)
+    const mainElement = document.getElementById(mainObject.activeFirstMenu)
     myButton = button
     event.stopPropagation()
     if (button.parentNode.parentNode.classList.contains('list')) {
@@ -24,16 +24,23 @@ buttons.forEach((button) => {
     } else {
       myButton.classList.add('buttonSecond')
       mainObject.menus[+getIndexFromSome(mainObject.activeFirstMenu)] = 3
-      button.parentNode.parentNode.classList.add('visuallyHidden')
+      hideElements(button)
       button.parentNode.parentNode.parentNode.classList.add('containerChoosen')
       button.parentNode.classList.add('containerActive')
-      mainElement.append(myButton)
+      mainElement.insertBefore(myButton, button.parentNode.parentNode)
     }
   })
 })
+function hideElements(element) {
+  for (el of element.parentNode.parentNode.children) {
+    if (el !== element.parentNode) {
+      el.classList.add('visuallyHidden')
+    }
+  }
+}
 
 function cleareActiveClasses(id) {
-  let index = getIndexFromSome(id)
+  const index = getIndexFromSome(id)
   mainObject.menus[index] = 1
   document.getElementById(id).classList.remove('containerActive')
 }

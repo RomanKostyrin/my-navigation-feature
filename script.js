@@ -5,10 +5,6 @@ const list = document.querySelector('.list')
 const buttons = document.querySelectorAll('.button')
 
 let myButton = 0
-let mainObject = {
-  activeFirstMenu: 'main-0',
-  menus: [2, 1, 1],
-}
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
@@ -19,8 +15,6 @@ buttons.forEach((button) => {
     if (button.parentNode.parentNode.classList.contains('list')) {
       cleareActiveClasses(mainObject.activeFirstMenu)
       button.parentNode.classList.add('containerActive')
-      mainObject.activeFirstMenu = button.parentNode.id
-      mainObject.menus[+getIndexFromSome(mainObject.activeFirstMenu)] = 2
     } else {
       myButton.classList.add('buttonSecond')
       mainObject.menus[+getIndexFromSome(mainObject.activeFirstMenu)] = 3

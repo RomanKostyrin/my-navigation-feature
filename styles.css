@@ -22,12 +22,8 @@ body {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-
   width: 200px;
   height: 300px;
-}
-.button {
-  background-color: rgb(233, 126, 126);
 }
 .subList {
   display: none;
@@ -37,9 +33,9 @@ body {
   position: relative;
   flex-direction: column;
 }
-.subListActive {
+/* .subListActive {
   display: flex;
-}
+} */
 .button2 {
   background-color: rgb(155, 155, 238);
 }
@@ -54,18 +50,26 @@ body {
   display: flex;
   flex-direction: column;
   padding: 0;
+  transition: all 500ms ease-in-out;
 }
+
 .containerActive {
   position: relative;
   flex: 10;
 }
-/* .containerActive > .button {
-  font-size: 12px;
-  width: 66px;
+.containerActive > .subList {
+  display: flex;
+}
+.containerChoosen .button {
   overflow: hidden;
-} */
-
+}
+.containerChoosen {
+  flex-direction: row;
+  align-items: flex-start;
+}
 .button {
+  min-width: 67px;
+  margin-bottom: 3px;
   font-size: 18px;
   border-radius: 5px;
   min-height: 30px;
@@ -75,8 +79,16 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  transition: all 500ms ease-in-out;
+
   border-radius: 10px;
+  background-color: rgb(233, 126, 126);
+}
+.button2 {
+  background-color: rgb(155, 155, 238);
+}
+.buttonSecond {
+  min-width: 130px;
+  transition: all 500ms ease-in-out;
 }
 .button--active {
   flex: 10;
